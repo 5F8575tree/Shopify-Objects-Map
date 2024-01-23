@@ -1,6 +1,7 @@
 # main.py
 import shopify
 import json
+import os
 from config import SHOPIFY_API_KEY, SHOPIFY_API_PASSWORD, SHOPIFY_STORE_URL
 
 # Initialize the Shopify API
@@ -105,10 +106,18 @@ def get_all_custom_collections():
 
     return all_custom_collections
 
+# Check if the 'data' directory exists, and create it if it doesn't
+data_directory = 'data'
+if not os.path.exists(data_directory):
+    os.makedirs(data_directory)
+
 def export_data(data, filename='shopify_data_map.json'):
-    with open(filename, 'w') as file:
+    data_directory = 'data'
+    file_path = os.path.join(data_directory, filename)
+    with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
-    print(f"Data exported to {filename}")
+    print(f"Data exported to {file_path}")
+
 
 # uncomment to fetch prorduct data
 # all_products_data = get_all_products()
@@ -116,7 +125,7 @@ def export_data(data, filename='shopify_data_map.json'):
 
 # uncomment to fetch collections data
 custom_collections_data = get_all_custom_collections()
-export_data(custom_collections_data, 'custom_collections.json')
+export_data(custom_collections_data, 'collections.json')
 # smart_collections_data = get_all_smart_collections()
 # export_data(smart_collections_data, 'smart_collections.json')
 
