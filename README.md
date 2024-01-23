@@ -1,1 +1,1 @@
-Ensure to push exported files into a separate directory in the project root (recommend 'data'). Add a .gitignore file and append 'data/'.
+This app nworks best when installed via the Shopify admin. Otherwise, you can create a private app in the Shopify admin and simply edit the API points.
