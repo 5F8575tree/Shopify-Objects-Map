@@ -118,7 +118,6 @@ def export_data(data, filename='shopify_data_map.json'):
         json.dump(data, file, indent=4)
     print(f"Data exported to {file_path}")
 
-
 # uncomment to fetch prorduct data
 # all_products_data = get_all_products()
 # export_data(all_products_data, 'all_products_data.json')
